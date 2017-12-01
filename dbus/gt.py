@@ -1,4 +1,4 @@
-#!/bin/bin/python
+#!/usr/bin/python
 
 # Copyright (c) 2017 François Cami
 
