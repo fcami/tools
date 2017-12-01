@@ -11,12 +11,12 @@ import subprocess
 from threading import Thread
 import re
 
-cmd2=['gnome-terminal']
 cmd1=['gdbus', 'monitor', '--session', '-d', 'org.gnome.Terminal']
+cmd2=['gnome-terminal']
+
 
 def launch(cmd):
-  p = subprocess.Popen(cmd,
-                     stdout=subprocess.PIPE)
+  p = subprocess.Popen(cmd, stdout=subprocess.PIPE)
   while True:
       output = p.stdout.readline()
       if output == '' and p.poll() is not None:
@@ -31,7 +31,7 @@ def launch(cmd):
 
 t1 = Thread(target=launch, args=(cmd1,))
 t2 = Thread(target=launch, args=(cmd2,))
+
 t1.start()
 t2.start()
-
 
